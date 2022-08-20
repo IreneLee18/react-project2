@@ -72,7 +72,7 @@ header ul li {
 }
 
 main {
-  /* height: calc(100vh - 120.5px); */
+  height: 150vh;
   margin-top: 120.5px;
 }
 
