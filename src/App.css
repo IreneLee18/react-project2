@@ -1,18 +1,6 @@
-.App {
-  text-align: center;
+#App{
+  position: relative;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +12,184 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+ul {
+  list-style: none;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+header {
+  background: #282c34;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 2rem 0;
+  z-index: 100;
+}
+
+header nav {
+  font-size: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+header ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+header ul li {
+  padding: 0 1rem;
+}
+
+.a-link {
+  color: #61dafb;
+  text-decoration: none;
+  position: relative;
+}
+
+.a-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: #61dafb;
+  z-index: 1;
+  transition: width .3s;
+}
+
+.a-link:hover::after {
+  width: 100%;
+}
+
+main {
+  /* height: calc(100vh - 120.5px); */
+  margin-top: 120.5px;
+}
+
+footer {
+  background: #282c34;
+  padding: 2rem 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer div {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* tourList */
+.tourList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  ;
+}
+
+.tourList li {
+  position: relative;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.tourList img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: opacity .3s;
+}
+
+.tourList a {
+  color: #282c34;
+}
+
+.tourList span {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity .3s;
+}
+
+.tourList li:hover img {
+  opacity: 1;
+}
+
+.tourList li:hover span {
+  opacity: 0;
+}
+
+/* pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination input {
+  background: #282c34;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  line-height: 50px;
+  margin: 0 .2rem;
+  color: #61dafb;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.pagination li:first-child input,
+.pagination li:last-child input {
+  line-height: 45px;
+}
+
+.pagination input:hover {
+  background: #61dafb;
+  color: white;
+}
+
+.pagination-active {
+  background: #61dafb !important;
+  color: white !important;
+}
+
+/* TourDetail */
+.card{
+  max-width: 60vw;
+  margin: 0 auto 2rem;
+}
+.card img{
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px 3px #282c34;
+}
+.card-content div{
+  display: flex;
+  text-align: start;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #282c34;
+}
+.card-content p:first-child{
+  width: 20%;
+}
+.card-content p:last-child{
+  width: 80%;
 }
