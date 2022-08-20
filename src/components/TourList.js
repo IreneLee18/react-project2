@@ -69,7 +69,7 @@ function TourList() {
   useEffect(() => {
     pagination(page.currentPage);
     setPageData(currentPageData);
-  }, [page.currentPage]);
+  }, [page.currentPage,currentPageData]);
   
   return (
     <>

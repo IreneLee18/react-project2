@@ -14,9 +14,8 @@ function TourDetail() {
           (item) => item.Id === id
         );
         setData(currentData[0]);
-        console.log(data);
       });
-  }, []);
+  }, [id]);
   return (
     <>
       <div className="card">
