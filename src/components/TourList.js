@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useCallback } from "react";
 import { Link } from "react-router-dom";
 function TourList() {
   const [data, setData] = useState([]);
@@ -40,7 +40,7 @@ function TourList() {
   }
 
   // 製作點擊頁碼並切換頁面資料
-  function pagination(nowPage) {
+  const pagination = useCallback((nowPage) =>{
     setPage((state) => ({ ...state, currentPage: nowPage }));
     setPageData([]); //每次都要清空一次
     if (page.currentPage > page.totalPage) {
@@ -63,13 +63,13 @@ function TourList() {
         currentPageData.push(item);
       }
     });
-  }
+  },[currentPageData, data, page.currentPage, page.totalPage])
 
   // 監聽目前頁碼，若有變化就呼叫 pagination 並帶入現在的頁碼 ＆ 將現在頁碼的資料放入到pageData中，使畫面可以做變化
   useEffect(() => {
     pagination(page.currentPage);
     setPageData(currentPageData);
-  }, [page.currentPage,currentPageData]);
+  }, [page.currentPage, currentPageData, pagination]);
   
   return (
     <>
